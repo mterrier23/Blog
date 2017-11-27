@@ -1,0 +1,16 @@
+{% extends "blog/header.html" %}
+
+{% block content %}
+  <div class = "post">
+    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <div class= "title">
+      {{post.title}}
+    </div>
+    <div class= "date">
+      {{ post.date|date:"m-d-Y" }}
+    </div>
+    <div class= "post_body">
+      {{post.text|safe|linebreaks}}
+    </div>
+  </div>
+{% endblock %}

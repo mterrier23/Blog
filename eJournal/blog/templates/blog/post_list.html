@@ -1,0 +1,29 @@
+{% extends "blog/header.html" %}
+{% block content %}
+
+{% for post in object_list %}
+	<div class = "title">
+		<h3><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+	</div>
+	<div class= "date">
+		{{ post.date|date:"D d M Y" }}
+	</div>
+	<div class= "post_body">
+		{{post.text|safe|linebreaks}}
+	</div>
+{% endfor %}
+ <!-- {% for tweet in tweets %}
+ 	<div class = "title">
+		Tweet
+	</div>
+	<div class = "date">
+		{{ tweet.datetime|date:"D d M Y" }}
+	</div>
+	<div class = "post_body">
+		{{ tweet.html|safe }}
+		{{ tweet.url }}
+		{{ tweet.entities.urls }}
+	</div>
+ {% endfor %} -->
+
+{% endblock %}
